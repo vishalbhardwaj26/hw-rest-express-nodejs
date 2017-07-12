@@ -42,6 +42,14 @@ var routes = function(){
                 });
             });
 
+             //localhost:3000\api\
+            bookRouter.route('/')
+            .get(function(req,res){
+               
+                    res.json({"Title":"these are apis"});
+                
+            });
+
             return bookRouter;
 
 };

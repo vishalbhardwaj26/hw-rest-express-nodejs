@@ -3,7 +3,13 @@ var mongoose = require('mongoose');
 var bodyParser = require ('body-parser');
 
 //connect tpo mongo db server for specified db; if not present , it will create one for you
-var db = mongoose.connect('mongodb://localhost/bookAPI');
+var db;
+if(process.env.ENV == 'Test'){
+ db = mongoose.connect('mongodb://localhost/bookAPI_test');
+}
+else{
+db = mongoose.connect('mongodb://localhost/bookAPI');
+}
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -25,4 +31,6 @@ app.get('/vishal/',function(req,res){
 //listening on port
 app.listen(PORT,function(){
     console.log('running on port'+PORT);
-})
+});
+
+module.exports = app;

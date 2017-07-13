@@ -1,7 +1,7 @@
 rest-express-nodejs
 -------------------
 
-To run it, choose either of it
+## To run it, choose either of it
 * run "gulp"  in the direrctory.
 * run 'npm start'
 * run 'node app.js'
@@ -9,7 +9,7 @@ To run it, choose either of it
 * you can access it online @ [azure-cloud](https://rest-express-nodejs.azurewebsites.net/)
 
 
-What else you can learn from it
+## What else you can learn from it
 * restful APIs in nodejs platform (get,post,put,patch,delete)
 * used express to publish rest APIs
 * Plug it with local mongo db server.

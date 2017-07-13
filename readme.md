@@ -1,5 +1,4 @@
 # rest-express-nodejs
--------------------
 
 ## To run it, choose either of it
 * run "gulp"  in the direrctory.

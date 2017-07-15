@@ -10,7 +10,7 @@ nodemon({
     script:'app.js',
     ext:'js',
     env:{
-        PORT:7000
+        PORT:3000
     },
     ignore:['./node_module/**']
 })

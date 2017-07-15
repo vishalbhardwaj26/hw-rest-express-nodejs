@@ -10,6 +10,10 @@
 
 ## What else you can learn from it
 * restful APIs in nodejs platform (get,post,put,patch,delete)
+* node js server without using express. publish pages using http functions
+    * run: node appwithoutexpress.
+    * Type in browser: localhost:8081/testpage.html
+    * You can also access the page from client.js by running "node client"" in another terminal. 
 * used express to publish rest APIs
 * Plug it with local mongo db server.
 * how to use mongoose to define document schema and used it as model
@@ -23,6 +27,9 @@
 * how to run tests using gulp
 * used postman to test APIs
 * deployed it on azure cloud using web app and accessed through postman with azure url.
+* Added Form example accessing get, post, upload-file rest apis
+    * Run: node app.js (server using express)
+    * Access through loacalhost:3000/testform.html
 * npm packages:	
 	* bodyParser : to parse the json fromat from rest call
 	* gulp: to run few tasks using gulp commands.

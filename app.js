@@ -16,12 +16,14 @@ db = mongoose.connect('mongodb://localhost/bookAPI');
 var PORT = process.env.PORT || 3000;
 
 var app = express();
-var subpath = express();
 
+//Adding swagger
+var subpath = express();
 app.use(bodyParser());
 
-app.use("/v1", subpath);
+app.use("/v1", subpath);// not sure where is it getting used?
 var swagger = require('swagger-node-express').createNew(subpath);
+
 //express.static middleware to start serving the files directly
 app.use(express.static('dist'));// used to publish static files/images
 swagger.setApiInfo({
@@ -40,7 +42,7 @@ swagger.setApiInfo({
 	// Set and display the application URL
 	var applicationUrl = 'http://localhost' + ':' + PORT;
 	swagger.configure(applicationUrl, '1.0.0');
-    //for swagger ends here
+//Adding swagger ends here
 
 
 app.use(bodyParser.urlencoded({extended:true}));

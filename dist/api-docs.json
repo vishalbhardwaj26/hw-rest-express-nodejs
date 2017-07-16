@@ -2,14 +2,17 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Sample spec",
-    "description": "Sample spec for Swagger",
+    "title": "Learning Exercise",
+    "description": "Learning Exercise by Vishal",
     "termsOfService": "http://swagger.io/terms/"
   },
   "basePath": "/",
   "tags" : [
-    {"name": "Tag1", 
-    "description": "API for something"
+    {"name": "Books", 
+    "description": "API for books"
+    },
+     {"name": "Base", 
+    "description": "API for base"
     }
   ],
   "schemes": [
@@ -22,22 +25,25 @@
     "application/json"
   ],
   "paths": {
-    "/path/to/method": {
+    "/api/Books": {
        "post": {
           "tags": ["Books"],
-          "description": "what this API does",
+          "description": "post new book in the list",
           "operationId": "for the URL",
-          "produces": [
-            "application/json"
-          ],
+          "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
           "parameters": [
               {
-                "name": "Job Parameters",
+                "name": "Book Parameters",
                 "in": "body",
-                "description": "Job to add to the database",
+                "description": "Book to add to the database",
                 "required": true,
               "schema": {
-                "$ref": "#/definitions/create"
+                "$ref": "#/definitions/book"
                 }
             }
           ],
@@ -45,121 +51,155 @@
             "200": {
               "description": "create response",
               "schema": {
-                 "$ref": "#/definitions/response"
+                 "$ref": "#/definitions/book"
               }
             }
+          }
+        },    
+    
+      "get": {
+          "tags": ["Books"],
+          "description": "get list of books",
+          "operationId": "for the URL",
+          "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+          "parameters": [
+             
+          ],
+          "responses": {
+          "200": {
+                        "description": "A list of books",
+                        "schema": {
+                            "$ref": "#/definitions/book-collection"
+                        }
+                    }
           }
         }
-    },
-    "/path/to/method/{someVariable}": {
-        "delete":{
-          "tags":["Tag1"],
-          "description":"Deletes a something",
-          "operationId":"delete",
-          "produces": [
-            "application/json"
-          ],
-          "parameters":[
-              {
-                "name": "someVariable",
-                "in": "path",
-                "description": "ID to delete",
-                "required": true,
-                "type": "string"
-              }
-            ],
-          "responses": {
-            "200": {
-              "description": "delete response",
-              "schema":{
-                "$ref":"#/definitions/deleteRes"
-              }
-            }
-          }
-        },
-      "get":{
-          "tags": [ "Tag1"],
-          "description": "Returns the status of something",
-          "operationId": "findById",
-          "produces": [
-            "application/json"
-          ],
+    } ,
+     "/api/Books/{bookId}": {
+       "get": {
+          "tags": ["Books"],
+          "description": "get particular book",
+          "operationId": "for the URL",
+          "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
           "parameters": [
               {
-                "name": "ID",
+                "name": "bookId",
                 "in": "path",
-                "description": "ID to fetch",
+                "description": "id to fect book",
                 "required": true,
-                "type": "string"
-              }
-            ],
-        "responses": {
+                "type": "string"              
+            }
+          ],
+          "responses": {
             "200": {
-              "description": "response",
+              "description": "instance of book",
               "schema": {
-                "$ref": "#/definitions/response1"
+                 "$ref": "#/definitions/book"
               }
             }
           }
-        }
-      }
+        } 
+       , "put": {
+          "tags": ["Books"],
+          "description": "modified particular book",
+          "operationId": "for the URL",
+          "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+          "parameters": [
+              {
+                "name": "bookId",
+                "in": "path",
+                "description": "id to modify book",
+                "required": true,
+                "type": "string"              
+            }, {
+                "name": "Book Parameters",
+                "in": "body",
+                "description": "Book to modify the database",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/book"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "instance of book",
+              "schema": {
+                 "$ref": "#/definitions/book"
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Books"],
+          "description": "delete particular book",
+          "operationId": "for the URL",
+          "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+          "parameters": [
+              {
+                "name": "bookId",
+                "in": "path",
+                "description": "id to delete book",
+                "required": true,
+                "type": "string"              
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "string"              
+            }
+          }
+        } 
+        
+      
+       }      
   },
   "definitions": {
-    "create": {
-      "properties": {
-        "eventId": {
-          "required":true,
-          "type": "string",
-          "example": "mathmaticial"
+    "book":{
+       "type": "object",
+            "required": [
+                "title",
+                "author"               
+            ],
+            "properties": {
+                "read": {
+                    "type": "boolean"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+    },
+    "book-collection": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/book"
+            }
         },
-        "numberRequired": {
-          "required":true,
-          "type":"integer",
-          "format": "int64",
-          "example": 500
-        } 
-      }
-    },
-    "response1": {
-        "properties": {
-          "jobID": {
-            "required":true,
-            "type": "string",
-            "example": "23423456543"
-          },
-          "request": {
-            "required":true,
-            "type": "schema",
-            "example": {
-              "eventId":"mathmaticial",
-              "numberRequired": 500
-            }
-          }
-      }
-    },
-    "response": {
-        "properties": {
-            "jobID": {
-              "required": true,
-              "type" : "string",
-              "example" : "12321432423"
-            }
-        }
-    },
-    "delete": {
-        "properties": {
-            "jobID": {
-              "required": true,
-              "type" : "string",
-              "example" : "234344234234"
-            },
-            "status" : {
-              "required": true,
-              "type": "string",
-              "example": "deleted"
-            }
-        }
-    },
+   
     "400error" : {
        "properties": {
         "message": {

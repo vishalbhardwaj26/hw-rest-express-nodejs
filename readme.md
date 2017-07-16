@@ -1,11 +1,18 @@
 # rest-express-nodejs
 
+
 ## To run it, choose either of it
 * run "gulp"  in the direrctory.
 * run 'npm start'
 * run 'node app.js'
 * run 'nodemon app.js' for running it in watch mode
 * you can access it online @ [azure-cloud](https://rest-express-nodejs.azurewebsites.net/)
+    * although this won't work optimally as we need mongodb server running locally to connect.
+    * So best is to clone it and run it locally on your machine.
+### Prerequisiste
+* you have to install mongodb locally and run it as server by running
+    * C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe
+* For cloud mongo db refer my another [git repo](https://github.com/vishalbhardwaj26/helloworld-node-express)
 
 
 ## What else you can learn from it
@@ -18,10 +25,10 @@
 * Plug it with local mongo db server.
 * how to use mongoose to define document schema and used it as model
 * how to use router route related apis in separate files.
-* ow to use Middle-ware to remove redundancy in each call for same urls (get,put,post,[atch,delete)
-* How to use controllers to further separate out/segregation for tesing
-* How to use gulpfile to define few commands
-* How to use nodemon to run server in watch mode
+* how to use Middle-ware to remove redundancy in each call for same urls (get,put,post,[atch,delete)
+* how to use controllers to further separate out/segregation for tesing
+* how to use gulpfile to define few commands
+* how to use nodemon to run server in watch mode
 * used unit testing/mocking framework (mocha, sinon) 
 * how to use end to end integration testing 
 * how to run tests using gulp
@@ -40,3 +47,5 @@
 	* should: to have assertion in testing framework
 	* sinon: provide mocking and spying framework
 	* supertest: to give http call agent; used in integration testing
+* Finally added swagger for documenattain and testing apis
+    * this was adding swagger to existing project so followed [blog](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs)

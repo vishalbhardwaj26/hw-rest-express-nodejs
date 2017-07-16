@@ -49,3 +49,6 @@
 	* supertest: to give http call agent; used in integration testing
 * Finally added swagger for documenattain and testing apis
     * this was adding swagger to existing project so followed [blog](https://github.com/shawngong/Swagger-Node-Express-For-Existing-APIs)
+    * one another way to add swagger to existing project [you tube](https://youtu.be/xggucT_xl5U)
+        * includes online tool to conver yaml to json, which consumed by swagger-ui
+        * includ gulp task (along with yaml-js package) to convert any changes in yaml to json automatically which get reflected into swagger ui

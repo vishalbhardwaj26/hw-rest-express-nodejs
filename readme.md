@@ -5,7 +5,7 @@
 * run "gulp"  in the direrctory.
 * run 'npm start'
 * run 'node app.js'
-* run 'nodemon app.js' for running it in watch mode
+* run 'nodemon app.js' for running it in watch mode//
 * you can access it online @ [azure-cloud](https://rest-express-nodejs.azurewebsites.net/)
     * although this won't work optimally as we need mongodb server running locally to connect.
     * So best is to clone it and run it locally on your machine.
